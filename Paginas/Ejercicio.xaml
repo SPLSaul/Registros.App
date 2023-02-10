@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Registros.Paginas.Ejercicio"
+             Shell.NavBarIsVisible="True"             
+             Title="Volver al menu">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="420"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="190"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Ejercicio: " FontSize="20" FontAttributes="Bold" Grid.Row="0"   Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="ejercicio" Placeholder="Introduce el artista"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Label Text="Peso: " FontSize="20" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"  BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="peso" Placeholder="Introduce el album"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" />
+
+                <Label Text="Parte: " FontSize="20" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="parte" Placeholder="Introduce el genero"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+                <Label Text="MaxRep: " FontSize="15" FontAttributes="Bold" Grid.Row="3" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="maxRep" Placeholder="Año de lanzamiento"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Label Text="Fecha: " FontSize="18" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="fecha" Placeholder="/10"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Button Text="Agregar" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" BackgroundColor="LightGreen" Clicked="btnAgregar"/>
+                <Button Text="Eliminar todo" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" BackgroundColor="Red" Clicked="btnEliminar"/>
+
+                <CollectionView x:Name="colleciontView" Grid.Row="7" Grid.ColumnSpan="3">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems SwipeBehaviorOnInvoked="Close">
+                                        <SwipeItem Text="Eliminar" BackgroundColor="OrangeRed"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="225"/>
+                                        <ColumnDefinition Width="125"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Ejercicio}" FontSize="Medium" Grid.Row="0" Grid.Column="0" TextColor="FloralWhite" FontAttributes="Italic"/>
+                                    <Label Text="{Binding Peso}" FontSize="Medium"  Grid.Row="1" TextColor="LightSalmon" Grid.Column="0"/>
+                                    <Label Text="{Binding Parte}" FontSize="Medium"  Grid.Row="0" TextColor="LightGreen" Grid.Column="1"/>
+                                    <Label Text="{Binding MaxRep}" FontSize="Medium"  Grid.Row="1" TextColor="LightBlue" Grid.Column="1"/>
+                                    <Label Text="{Binding Fecha}" FontSize="Medium"  Grid.Row="0" TextColor="LightPink" Grid.Column="2"/>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

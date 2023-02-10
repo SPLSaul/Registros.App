@@ -1,4 +1,5 @@
-﻿using Microsoft.Maui.Controls.Shapes;
+﻿using Registros.Paginas;
+using Microsoft.Maui.Controls.Shapes;
 
 namespace Registros;
 

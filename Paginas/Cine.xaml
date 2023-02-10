@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Registros.Paginas.Cine"
+            Shell.NavBarIsVisible="True"             
+             Title="Volver al menu">
+    <ScrollView>
+        <VerticalStackLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="420"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="190"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Director: " FontSize="20" FontAttributes="Bold" Grid.Row="0"   Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="director" Placeholder="Introduce el director"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Label Text="Titulo: " FontSize="20" FontAttributes="Bold" Grid.Row="1" Grid.Column="0"  BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="titulo" Placeholder="Introduce el titulo"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="1" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Label Text="Genero: " FontSize="20" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="genero" Placeholder="Introduce el genero"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="2" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Label Text="Lanzamiento: " FontSize="15" FontAttributes="Bold" Grid.Row="3" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="release" Placeholder="Año de lanzamiento"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="3" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Label Text="Calificacion: " FontSize="18" FontAttributes="Bold" Grid.Row="4" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+                <Entry x:Name="rating" Placeholder="/10"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="2"/>
+
+                <Button Text="Agregar" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" BackgroundColor="LightGreen" Clicked="btnAgregar"/>
+                <Button Text="Eliminar todo" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" BackgroundColor="Red" Clicked="btnEliminar"/>
+
+                <CollectionView x:Name="colleciontView" Grid.Row="7" Grid.ColumnSpan="3">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems SwipeBehaviorOnInvoked="Close">
+                                        <SwipeItem Text="Eliminar" BackgroundColor="OrangeRed"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <Grid BackgroundColor="Black" >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="50"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="225"/>
+                                        <ColumnDefinition Width="125"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Titulo}" FontSize="Medium" Grid.Row="0" Grid.Column="0" TextColor="FloralWhite" FontAttributes="Italic"/>
+                                    <Label Text="{Binding Director}" FontSize="Medium"  Grid.Row="1" TextColor="LightSalmon" Grid.Column="0"/>
+                                    <Label Text="{Binding Genero}" FontSize="Medium"  Grid.Row="0" TextColor="LightGreen" Grid.Column="1"/>
+                                    <Label Text="{Binding Release}" FontSize="Medium"  Grid.Row="1" TextColor="LightBlue" Grid.Column="1"/>
+                                    <Label Text="{Binding Calificacion}" FontSize="Medium"  Grid.Row="0" TextColor="LightPink" Grid.Column="2"/>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
