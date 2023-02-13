@@ -20,7 +20,7 @@
                 </Grid.ColumnDefinitions>
 
                 <ImageButton Source="cine.jpg" Grid.Row="0" Grid.Column="0"/>
-                <Button Clicked="btnCine" Text="CINE" FontSize="50" FontAttributes="Italic" BackgroundColor="Transparent" Grid.Row="0" TextColor="Wheat" Grid.Column="0"/>
+                <Button Clicked="btnCine" Text="CINE L" FontSize="50" FontAttributes="Italic" BackgroundColor="Transparent" Grid.Row="0" TextColor="Wheat" Grid.Column="0"/>
 
                 <Image Source="musica.png" Grid.Row="1" Grid.Column="0"/>
                 <Button Clicked="btnMusica" Text="MUSICA"  FontSize="50" FontAttributes="Italic" TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="1" Grid.Column="0"/>
