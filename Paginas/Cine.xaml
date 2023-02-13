@@ -40,6 +40,7 @@
 
                 <Button Text="Agregar" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" BackgroundColor="LightGreen" Clicked="btnAgregar"/>
                 <Button Text="Eliminar todo" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" BackgroundColor="Red" Clicked="btnEliminar"/>
+				
 
                 <CollectionView x:Name="colleciontView" Grid.Row="7" Grid.ColumnSpan="3">
                     <CollectionView.ItemTemplate>
@@ -48,6 +49,7 @@
                                 <SwipeView.RightItems>
                                     <SwipeItems SwipeBehaviorOnInvoked="Close">
                                         <SwipeItem Text="Eliminar" BackgroundColor="OrangeRed"/>
+										<SwipeItem Text="Editar" BackgroundColor="Green"/>
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <Grid BackgroundColor="Black" >
