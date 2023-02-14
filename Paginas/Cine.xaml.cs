@@ -43,4 +43,18 @@ public partial class Cine : ContentPage
         await App.cineDatabase.DeleteAll();
         colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
     }
+    async void btnEliminar(object sender, EventArgs e)
+    {
+        var album = await App.cineDatabase.DeleteAlbum(Convert.ToInt32(Id));
+        if (album != null)
+        {
+            await App.DeleteAlbum(album);
+            await DisplayAlert("Eliminado", "Se ha eliminado correctamente","Ok");
+            colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
+        }
+    }
+    async void btnEditar(object sender, EventArgs e)
+    {
+        await DisplayAlert("Seleccion", "Has seleccionado editar", "Ok");
+    }
 }
