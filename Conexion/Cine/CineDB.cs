@@ -32,9 +32,9 @@ namespace Registros.Conexion.Cine
         {
             return _database.DeleteAsync(movie);
         }
-        public Task<int> GetMovie(int IdAlbum)
+        public Task<CineAtributos> GetMovie(int movie)
         {
-            return _database.Table<CineAtributos>().Where(a => a.Id == IdAlbum).FirstOrDefaultAsync();
+            return _database.Table<CineAtributos>().Where(a => a.Id == movie).FirstOrDefaultAsync();
         }
     }
 }

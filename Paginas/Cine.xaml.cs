@@ -48,7 +48,7 @@ public partial class Cine : ContentPage
         var album = await App.cineDatabase.GetMovie(Convert.ToInt32(Id));
         if (album != null)
         {
-            await App.DeleteAlbum(album);
+            await App.cineDatabase.DeleteMovie(movie);
             await DisplayAlert("Eliminado", "Se ha eliminado correctamente","Ok");
             colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
         }
