@@ -45,7 +45,7 @@ public partial class Cine : ContentPage
     }
     async void btnEliminar(object sender, EventArgs e)
     {
-        var album = await App.cineDatabase.DeleteAlbum(Convert.ToInt32(Id));
+        var album = await App.cineDatabase.GetMovie(Convert.ToInt32(Id));
         if (album != null)
         {
             await App.DeleteAlbum(album);

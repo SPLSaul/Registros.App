@@ -28,9 +28,13 @@ namespace Registros.Conexion.Cine
         {
             return _database.DeleteAllAsync<CineAtributos>();
         }
-        public Task<int> DeleteAlbum(CineAtributos movie)
+        public Task<int> DeleteMovie(CineAtributos movie)
         {
             return _database.DeleteAsync(movie);
+        }
+        public Task<int> GetMovie(int IdAlbum)
+        {
+            return _database.Table<CineAtributos>().Where(a => a.Id == IdAlbum).FirstOrDefaultAsync();
         }
     }
 }
