@@ -45,14 +45,13 @@ public partial class Cine : ContentPage
     }
     async void btnEliminar(object sender, EventArgs e)
     {
-        var album = await App.cineDatabase.GetMovie(Convert.ToInt32(Id));
-        if (album != null)
-        {
-            await App.cineDatabase.DeleteMovie(movie);
-            await DisplayAlert("Eliminado", "Se ha eliminado correctamente","Ok");
-            colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
-        }
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var pelicula = await App.cineDatabase.GetMovie(Convert.ToInt32(id));
+        await App.cineDatabase.DeleteMovie(pelicula);
+        await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
+        colleciontView.ItemsSource = await App.cineDatabase.GetMovies();       
     }
+
     async void btnEditar(object sender, EventArgs e)
     {
         await DisplayAlert("Seleccion", "Has seleccionado editar", "Ok");
