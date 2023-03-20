@@ -47,6 +47,6 @@ public partial class Ejercicio : ContentPage
         var pelicula = await App.ejercicioDatabase.GetEjercicio(Convert.ToInt32(id));
         await App.ejercicioDatabase.DeleteEjercicio(pelicula);
         await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
-        colleciontView.ItemsSource = await App.ejercicioDatabase.GetEjercicio();
+        colleciontView.ItemsSource = await App.ejercicioDatabase.GetWorkout();
     }
 }
