@@ -9,10 +9,10 @@
         <VerticalStackLayout>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="400"/>
-                    <RowDefinition Height="400"/>
-                    <RowDefinition Height="400"/>
-                    <RowDefinition Height="400"/>
+                    <RowDefinition Height="350"/>
+                    <RowDefinition Height="350"/>
+                    <RowDefinition Height="350"/>
+                    <RowDefinition Height="350"/>
                 </Grid.RowDefinitions>                
                 <ImageButton Source="cine.jpg" Grid.Row="0"/>
                 <Button Clicked="btnCine" Text="CINE" FontSize="50" FontAttributes="Italic" BackgroundColor="Transparent" Grid.Row="0" TextColor="Wheat" />
@@ -20,10 +20,10 @@
                 <Image Source="musica.png" Grid.Row="1" />
                 <Button Clicked="btnMusica" Text="MUSICA"  FontSize="50" FontAttributes="Italic" TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="1" />
 
-                <Image Source="libros.jpg" Grid.Row="0"/>
+                <Image Source="libros.jpg" Grid.Row="2"/>
                 <Button Clicked="btnLibros" Text="LIBROS"  FontSize="50" FontAttributes="Italic" TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="0"/>
 
-                <Image Source="ejercicio.jpg" Grid.Row="1" />
+                <Image Source="ejercicio.jpg" Grid.Row="3" />
                 <Button Clicked="btnEjercicio" Text="EJERCICIO"  FontSize="35" FontAttributes="Italic " TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="1" />
             </Grid>
         </VerticalStackLayout>
