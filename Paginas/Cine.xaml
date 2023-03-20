@@ -49,7 +49,7 @@
                                 <SwipeView.RightItems>
                                     <SwipeItems SwipeBehaviorOnInvoked="Close">
                                         <SwipeItem Text="Eliminar" BackgroundColor="OrangeRed" Clicked="btnEliminar" CommandParameter="{Binding Id}"/>
-										<SwipeItem Text="Editar" BackgroundColor="Green" CommandParameter="{Binding Id}"/>
+										<SwipeItem Text="Editar" BackgroundColor="Green" CommandParameter="{Binding Id}" Clicked = "btnEditar"/>
                                     </SwipeItems>
                                 </SwipeView.RightItems>
                                 <Grid BackgroundColor="Black" >

@@ -54,6 +54,17 @@ public partial class Cine : ContentPage
 
     async void btnEditar(object sender, EventArgs e)
     {
-        await DisplayAlert("Seleccion", "Has seleccionado editar", "Ok");
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var pelicula = await App.cineDatabase.GetMovie(Convert.ToInt32(id));
+        if(id != null)
+        {
+            Director = director.Text,
+            Titulo = titulo.Text,
+            Genero = genero.Text,
+            Calificacion = int.Parse(rating.Text),
+            Release = int.Parse(release.Text)
+            await App.cineDatabase.UpdateMovie(pelicula);
+        }
+        colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
     }
 }
