@@ -21,10 +21,10 @@
                 <Button Clicked="btnMusica" Text="MUSICA"  FontSize="50" FontAttributes="Italic" TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="1" />
 
                 <Image Source="libros.jpg" Grid.Row="2"/>
-                <Button Clicked="btnLibros" Text="LIBROS"  FontSize="50" FontAttributes="Italic" TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="0"/>
+                <Button Clicked="btnLibros" Text="LIBROS"  FontSize="50" FontAttributes="Italic" TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="2"/>
 
                 <Image Source="ejercicio.jpg" Grid.Row="3" />
-                <Button Clicked="btnEjercicio" Text="EJERCICIO"  FontSize="35" FontAttributes="Italic " TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="1" />
+                <Button Clicked="btnEjercicio" Text="EJERCICIO"  FontSize="35" FontAttributes="Italic " TextColor="Wheat" BackgroundColor="Transparent" Grid.Row="3" />
             </Grid>
         </VerticalStackLayout>
     </ScrollView>
