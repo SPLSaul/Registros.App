@@ -39,9 +39,17 @@ public partial class Libros : ContentPage
         base.OnAppearing();
         colleciontView.ItemsSource = await App.libros.GetLibros();
     }
-    async void btnEliminar(object sender, EventArgs e)
+    async void btnEliminarTodo(object sender, EventArgs e)
     {
         await App.libros.DeleteAll();
+        colleciontView.ItemsSource = await App.libros.GetLibros();
+    }
+    async void btnEliminar(object sender, EventArgs e)
+    {
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var libro = await App.libros.GetLibro(Convert.ToInt32(id));
+        await App.libros.DeleteLibro(libro);
+        await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
         colleciontView.ItemsSource = await App.libros.GetLibros();
     }
 }

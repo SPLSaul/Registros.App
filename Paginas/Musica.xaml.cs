@@ -38,9 +38,17 @@ public partial class Musica : ContentPage
         base.OnAppearing();
         colleciontView.ItemsSource = await App.musicadatabase.GetAlbums();
     }
-    async void btnEliminar(object sender, EventArgs e)
+    async void btnEliminarTodo(object sender, EventArgs e)
     {
         await App.musicadatabase.DeleteAll();
+        colleciontView.ItemsSource = await App.musicadatabase.GetAlbums();
+    }
+    async void btnEliminar(object sender, EventArgs e)
+    {
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var album = await App.musicadatabase.GetAlbum(Convert.ToInt32(id));
+        await App.musicadatabase.DeleteAlbum(album);
+        await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
         colleciontView.ItemsSource = await App.musicadatabase.GetAlbums();
     }
 }

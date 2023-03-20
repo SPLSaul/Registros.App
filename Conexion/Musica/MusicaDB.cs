@@ -32,5 +32,9 @@ namespace Registros.Conexion.Musica
         {
             return _database.DeleteAsync(musica);
         }
+        public Task<MusicaAtributos> GetAlbum(int album)
+        {
+            return _database.Table<MusicaAtributos>().Where(a => a.Id == album).FirstOrDefaultAsync();
+        }
     }
 }

@@ -36,9 +36,17 @@ public partial class Ejercicio : ContentPage
         base.OnAppearing();
         colleciontView.ItemsSource = await App.ejercicioDatabase.GetWorkout();
     }
-    async void btnEliminar(object sender, EventArgs e)
+    async void btnEliminarTodo(object sender, EventArgs e)
     {
         await App.ejercicioDatabase.DeleteAll();
         colleciontView.ItemsSource = await App.ejercicioDatabase.GetWorkout();
+    }
+    async void btnEliminar(object sender, EventArgs e)
+    {
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var pelicula = await App.ejercicioDatabase.GetEjercicio(Convert.ToInt32(id));
+        await App.ejercicioDatabase.DeleteEjercicio(pelicula);
+        await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
+        colleciontView.ItemsSource = await App.ejercicioDatabase.GetEjercicio();
     }
 }

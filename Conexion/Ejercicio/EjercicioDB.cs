@@ -32,5 +32,9 @@ namespace Registros.Conexion.Ejercicio
         {
             return _database.DeleteAsync(ejercicio);
         }
+        public Task<EjercicioAtributos> GetEjercicio(int ejercicio)
+        {
+            return _database.Table<EjercicioAtributos>().Where(a => a.Id == ejercicio).FirstOrDefaultAsync();
+        }
     }
 }

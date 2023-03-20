@@ -32,5 +32,10 @@ namespace Registros.Conexion.Libros
         {
             return _database.DeleteAsync(libro);
         }
+        public Task<LibrosAtributos> GetLibro(int libro)
+        {
+            return _database.Table<LibrosAtributos>().Where(a => a.Id == libro).FirstOrDefaultAsync();
+        }
+
     }
 }

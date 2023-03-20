@@ -38,7 +38,7 @@ public partial class Cine : ContentPage
         base.OnAppearing();
         colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
     }
-    async void btnEliminar(object sender, EventArgs e)
+    async void btnEliminarTodo(object sender, EventArgs e)
     {
         await App.cineDatabase.DeleteAll();
         colleciontView.ItemsSource = await App.cineDatabase.GetMovies();

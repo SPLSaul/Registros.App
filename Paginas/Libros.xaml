@@ -39,7 +39,7 @@
                 <Entry x:Name="rating" Placeholder="/10"  FontSize="20" PlaceholderColor="Aqua" Grid.Row="4" Grid.Column="1"  Grid.ColumnSpan="2"/>
 
                 <Button Text="Agregar" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" BackgroundColor="LightGreen" Clicked="btnAgregar"/>
-                <Button Text="Eliminar todo" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" BackgroundColor="Red" Clicked="btnEliminar"/>
+                <Button Text="Eliminar todo" FontSize="Medium" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" BackgroundColor="Red" Clicked="btnEliminarTodo"/>
 
                 <CollectionView x:Name="colleciontView" Grid.Row="7" Grid.ColumnSpan="3" >
                     <CollectionView.ItemTemplate>
