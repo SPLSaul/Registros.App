@@ -52,4 +52,24 @@ public partial class Libros : ContentPage
         await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
         colleciontView.ItemsSource = await App.libros.GetLibros();
     }
+    async void btnEditar(object sender, EventArgs e)
+    {
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var pelicula = await App.libros.GetLibro(Convert.ToInt32(id));
+        await App.libros.DeleteLibro(pelicula);
+        await App.libros.SaveLibro(new LibrosAtributos
+        {
+            Autor = autor.Text,
+            Titulo = titulo.Text,
+            Genero = genero.Text,
+            Calificacion = int.Parse(rating.Text),
+            Publicacion = int.Parse(publicacion.Text)
+        });
+        autor.Text = string.Empty;
+        titulo.Text = string.Empty;
+        genero.Text = string.Empty;
+        rating.Text = string.Empty;
+        publicacion.Text = string.Empty;
+        colleciontView.ItemsSource = await App.libros.GetLibros();
+    }
 }

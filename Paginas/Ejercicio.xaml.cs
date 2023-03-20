@@ -49,4 +49,24 @@ public partial class Ejercicio : ContentPage
         await DisplayAlert("Borrar", "Se ha eliminado exitosamente", "Ok");
         colleciontView.ItemsSource = await App.ejercicioDatabase.GetWorkout();
     }
+    async void btnEditar(object sender, EventArgs e)
+    {
+        string id = ((MenuItem)sender).CommandParameter.ToString();
+        var pelicula = await App.ejercicioDatabase.GetEjercicio(Convert.ToInt32(id));
+        await App.ejercicioDatabase.DeleteEjercicio(pelicula);
+        await App.ejercicioDatabase.SaveEjercicio(new EjercicioAtributos
+        {
+            Ejercicio = ejercicio.Text,
+            Peso = int.Parse(peso.Text),
+            Parte = parte.Text,
+            MaxRep = int.Parse(maxRep.Text),
+            Fecha = fecha.Text
+        });
+        ejercicio.Text = string.Empty;
+        peso.Text = string.Empty;
+        parte.Text = string.Empty;
+        maxRep.Text = string.Empty;
+        fecha.Text = string.Empty;
+        colleciontView.ItemsSource = await App.ejercicioDatabase.GetWorkout();
+    }
 }

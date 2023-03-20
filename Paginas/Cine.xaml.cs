@@ -56,15 +56,20 @@ public partial class Cine : ContentPage
     {
         string id = ((MenuItem)sender).CommandParameter.ToString();
         var pelicula = await App.cineDatabase.GetMovie(Convert.ToInt32(id));
-        if(id != null)
+        await App.cineDatabase.DeleteMovie(pelicula);
+        await App.cineDatabase.SaveMovie(new CineAtributos
         {
             Director = director.Text,
             Titulo = titulo.Text,
             Genero = genero.Text,
             Calificacion = int.Parse(rating.Text),
             Release = int.Parse(release.Text)
-            await App.cineDatabase.UpdateMovie(pelicula);
-        }
+        });
+        director.Text = string.Empty;
+        titulo.Text = string.Empty;
+        genero.Text = string.Empty;
+        rating.Text = string.Empty;
+        release.Text = string.Empty;
         colleciontView.ItemsSource = await App.cineDatabase.GetMovies();
     }
 }
