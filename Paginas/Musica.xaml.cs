@@ -54,12 +54,12 @@ public partial class Musica : ContentPage
     async void btnEditar(object sender, EventArgs e)
     {
         string id = ((MenuItem)sender).CommandParameter.ToString();
-        var album = await App.musicadatabase.GetAlbum(Convert.ToInt32(id));
-        await App.musicadatabase.DeleteAlbum(album);
+        var disco = await App.musicadatabase.GetAlbum(Convert.ToInt32(id));
+        await App.musicadatabase.DeleteAlbum(disco);
         await App.musicadatabase.SaveAlbum(new MusicaAtributos
         {
             Artista = artista.Text,
-            Album = album.Text,
+            Album = album.ToString(),
             Genero = genero.Text,
             Calificacion = int.Parse(rating.Text),
             Release = int.Parse(release.Text)
