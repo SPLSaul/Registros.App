@@ -36,10 +36,7 @@ namespace Registros.Conexion.Cine
         {
             return _database.Table<CineAtributos>().Where(a => a.Id == movie).FirstOrDefaultAsync();
         }
-        public Task<CineAtributos> UpdateMovie(CineAtributos cine)
-        {
-            return _database.UpdateAsync(cine);
-        }
+        
     }
 }
 
